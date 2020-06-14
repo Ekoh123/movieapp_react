@@ -1,13 +1,18 @@
 import React, { Component } from "react";
-//import logo from './logo.svg';
-//import './App.css';
+import "./App.css";
 import Moviecards from "./movieCard";
 import axios from "axios";
 
 class App extends Component {
   state = {
-    movieList: ["tt3896198"],
+    movieList: [],
     movieInput: "",
+  };
+
+  handleChange = (event) => {
+    this.setState({
+      movieInput: event.target.value,
+    });
   };
 
   movieSearch = (event) => {
@@ -17,13 +22,12 @@ class App extends Component {
       .get(
         `http://www.omdbapi.com/?s=${this.state.movieInput}&apikey=e3b125ec&plot=full`
       )
-      .then((response) => response.data);
-  };
-
-  handleChange = (event) => {
-    this.setState({
-      movieInput: event.target.value,
-    });
+      .then((response) => {
+        console.log(response.data.Search);
+        this.setState({
+          movieList: response.data.Search,
+        });
+      });
   };
 
   render() {
@@ -42,7 +46,7 @@ class App extends Component {
             <Moviecards Title={movie.Title} Key={movie.imdbID} />
           ))
         ) : (
-          <p>Sorry, the movie was not found.</p>
+          <p>Please enter a movie name into the search box</p>
         )}
       </div>
     );
