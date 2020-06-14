@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./card.css";
 
 class Moviecards extends Component {
   state = {
@@ -40,7 +41,6 @@ class Moviecards extends Component {
           </div>
         </div>
         <div className="movie-info">
-          <h2>MOVIE DETAILS</h2>
           <div>
             <h1>{Title}</h1>
             <p>
@@ -52,6 +52,7 @@ class Moviecards extends Component {
           </div>
         </div>
         <div className="plot">
+          <h2>PLOT</h2>
           <p>{Plot}</p>
         </div>
       </div>

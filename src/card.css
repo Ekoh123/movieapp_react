@@ -1,0 +1,24 @@
+.card-wrapper {
+  border: 2px solid black;
+  width: 500px;
+  height: 700px;
+  float: left;
+  margin: 20px;
+}
+
+.image-wrapper {
+  float: left;
+  margin: 10px;
+}
+
+img {
+  width: 200px;
+}
+
+.movie-info {
+  margin: 10px;
+}
+
+.plot {
+  margin: 10px;
+}
