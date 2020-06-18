@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./card.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 class Moviecards extends Component {
   state = {
@@ -10,7 +11,7 @@ class Moviecards extends Component {
   componentDidMount() {
     axios
       .get(
-        `http://www.omdbapi.com/?t=${this.props.Title}&apikey=e3b125ec&plot=full`
+        `http://www.omdbapi.com/?t=${this.props.Title}&apikey=e3b125ec&plot=short`
       )
 
       .then((response) => {
@@ -35,24 +36,27 @@ class Moviecards extends Component {
 
     return (
       <div className="card-wrapper">
-        <div className="image-wrapper">
-          <div>
-            <img src={Poster} alt={Title} />
+        <div className="albulm">
+          <div className="image-wrapper">
+            <div>
+              <img src={Poster} className="rounded img-fluid" alt={Title} />
+            </div>
           </div>
-        </div>
-        <div className="movie-info">
-          <div>
-            <h1>{Title}</h1>
-            <p>
-              This {Type} is {Rated}
-            </p>
-            <h4>Genre: {Genre} </h4>
-            <p>Runtime: {Runtime}</p>
-            <p>Released: {Released} </p>
+          <div className="movie-info">
+            <div>
+              <h1>{Title}</h1>
+              <h5>
+                This {Type} is {Rated}
+              </h5>
+              <h5>Genre: {Genre} </h5>
+              <h5>Runtime: {Runtime}</h5>
+              <h5>Released: {Released} </h5>
+            </div>
           </div>
         </div>
         <div className="plot">
           <h2>PLOT</h2>
+          <hr />
           <p>{Plot}</p>
         </div>
       </div>

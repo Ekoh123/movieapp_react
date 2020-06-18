@@ -1,24 +1,40 @@
 .card-wrapper {
   border: 2px solid black;
-  width: 500px;
-  height: 700px;
+  width: 600px;
+  height: 500px;
+  margin: 50px;
+  border-radius: 5% 0%;
   float: left;
-  margin: 20px;
 }
 
+.albulm {
+  margin: 0;
+  height: auto;
+}
 .image-wrapper {
-  float: left;
   margin: 10px;
+  padding: 0px;
+  position: relative;
+  float: left;
 }
 
 img {
-  width: 200px;
+  width: 170px;
+  margin-top: 10px;
 }
 
 .movie-info {
   margin: 10px;
+  text-align: right;
+  position: relative;
 }
 
 .plot {
   margin: 10px;
+  text-overflow: clip;
+  clear: both;
+}
+
+.plot > h2 {
+  text-align: center;
 }

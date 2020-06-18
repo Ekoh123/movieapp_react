@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
 import Moviecards from "./movieCard";
 import axios from "axios";
 
@@ -20,7 +21,7 @@ class App extends Component {
 
     axios
       .get(
-        `http://www.omdbapi.com/?s=${this.state.movieInput}&apikey=e3b125ec&plot=full`
+        `http://www.omdbapi.com/?s=${this.state.movieInput}&apikey=e3b125ec&plot=short`
       )
       .then((response) => {
         console.log(response.data.Search);
@@ -33,20 +34,28 @@ class App extends Component {
   render() {
     return (
       <div>
-        <form className="form-group" onSubmit={this.movieSearch}>
-          <input
-            className="movie-input"
-            placeholder="Enter movie name"
-            onChange={this.handleChange}
-          />
-          <button type="submit">Search</button>
-        </form>
+        <div className="jumbotron text-center">
+          <h1 className="display-1">MOOVIT!</h1>
+          <form className="form-group" onSubmit={this.movieSearch}>
+            <input
+              className="movie-input forn-control form-control-lg"
+              placeholder="Enter movie name"
+              onChange={this.handleChange}
+            />
+            <button type="submit" className="btn btn-lg btn-info">
+              Search
+            </button>
+          </form>
+        </div>
+
         {this.state.movieList.length > 0 ? (
           this.state.movieList.map((movie) => (
             <Moviecards Title={movie.Title} Key={movie.imdbID} />
           ))
         ) : (
-          <p>Please enter a movie name into the search box</p>
+          <p className="text-center">
+            Please enter a movie name into the search box
+          </p>
         )}
       </div>
     );
