@@ -28,7 +28,8 @@ class App extends Component {
         this.setState({
           movieList: response.data.Search,
         });
-      });
+      })
+      .then({ movieInput: "" });
   };
 
   render() {
